@@ -1,7 +1,12 @@
-import UserList from "./components/UserList";
+import { useState } from "react";
+import ExpandableText from "./components/ExpandableText";
 
 function App() {
-  return <UserList />;
+  return (
+    <div>
+      <ExpandableText>Hello World</ExpandableText>
+    </div>
+  );
 }
 
 export default App;
