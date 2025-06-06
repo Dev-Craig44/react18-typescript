@@ -1,6 +1,4 @@
-import React from 'react'
-
-interface Props { 
+interface Props {
   cartItems: string[];
   onClear: () => void;
 }
@@ -8,13 +6,15 @@ interface Props {
 const Cart = ({ cartItems, onClear }: Props) => {
   return (
     <>
-    <div>Cart</div>
-    <ul>
-      {cartItems.map(item => <li key={item}>{item}</li>)}
-    </ul>
-    <button onClick={onClear}>Clear</button>
+      <div>Cart</div>
+      <ul>
+        {cartItems.map((item) => (
+          <li key={item}> {item} </li>
+        ))}
+      </ul>
+      <button onClick={onClear}>Clear</button>
     </>
-  )
-}
+  );
+};
 
-export default Cart
+export default Cart;
