@@ -30,3 +30,5 @@ In this section, we'll cover how to build robust forms in React using modern too
 2. **Zod** – For powerful and declarative schema-based form validation.
 
 These tools will help you create user-friendly forms with minimal boilerplate and strong type safety.
+
+> **Note:** To test your changes live, run `npm run dev` and visit the localhost page in your browser.
