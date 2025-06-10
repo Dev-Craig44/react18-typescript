@@ -2,6 +2,8 @@
 // import { z } from "zod";
 // import { zodResolver } from "@hookform/resolvers/zod";
 
+import { FormEvent } from "react";
+
 // const schema = z.object({
 //   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
 //   age: z
@@ -61,15 +63,19 @@
 // solve this by preventing this default behavior
 
 const Form = () => {
+  // when moving attributes from a element, hover over the word and you'll see the tool tip with the type
+  const handleSubmit = (event: FormEvent) => {
+    event.preventDefault();
+    console.log("Submitted");
+  };
+
   return (
     // to handle form submission we handle the [onSubmit] event just like we do on a click event
     // give our arrow funcrion a [event] parameter and place expression inside curly braces
     <form
-      onSubmit={(event) => {
-        // prevent this form from being posted to the server using the {preventDefault} methode on the [event] object
-        event.preventDefault();
-        console.log("Submitted");
-      }}
+      // if the logic inside this onSubmit attribute gets too complicated it maybe best to move this logic to it's on file
+      // note that I'm not calling this function. I'm just refrencing it.
+      onSubmit={handleSubmit}
     >
       {/* // I want to create some markup but I don't want to create it all by hand
       // add a div.mb-3 which is a div with the classname of mb-3 (margin bottom 3) | utility class in bootstrap
