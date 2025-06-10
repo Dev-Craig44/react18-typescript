@@ -72,6 +72,20 @@ const Form = () => {
         </label>
         <input type="text" className="form-control" />
       </div>
+
+      <div className="mb-3">
+        <label htmlFor="age" className="form-label">
+          Age
+        </label>
+        <input id="age" type="number" className="form-control" />
+      </div>
+
+      {/* add sumbit button */}
+      {/* use button.btn.btn-primary */}
+      {/* set type to submit */}
+      <button className="btn btn-primary" type="submit">
+        Submit
+      </button>
     </form>
   );
 };
