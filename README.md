@@ -32,3 +32,15 @@ In this section, we'll cover how to build robust forms in React using modern too
 These tools will help you create user-friendly forms with minimal boilerplate and strong type safety.
 
 > **Note:** To test your changes live, run `npm run dev` and visit the localhost page in your browser.
+
+- The **useRef** hook allows you to reference a DOM element in your component.
+- You can use `useRef` to access an input field and read its value when the form is submitted.
+- In HTML, all input elements have a `value` property.
+
+- If you see the error `"Property 'value' does not exist on type 'never'.ts(2339)"`, it's because TypeScript doesn't know that your ref is pointing to an HTML input element.
+- To resolve this, you should specify the correct type for your ref (e.g., `useRef<HTMLInputElement>(null)`).
+- When sending form data to a server, it's best practice to send an object containing all the relevant fields.
+
+- **Why initialize every useRef with `null`?**
+  - The `current` property of a ref object will reference a DOM node after the component mounts, but before that, it is `null`.
+  - This is why the type of `current` is either the DOM node or `null`.

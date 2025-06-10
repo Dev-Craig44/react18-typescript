@@ -2,7 +2,7 @@
 // import { z } from "zod";
 // import { zodResolver } from "@hookform/resolvers/zod";
 
-import { FormEvent } from "react";
+import { FormEvent, useRef } from "react";
 
 // const schema = z.object({
 //   name: z.string().min(3, { message: "Name must be at least 3 characters." }),
@@ -63,10 +63,19 @@ import { FormEvent } from "react";
 // solve this by preventing this default behavior
 
 const Form = () => {
+  // common practice is to pass [null] to the useRef hook.
+  // this returns a reference object, so lets put it in a [nameRef] in a const
+  // because we're using useRef we can reference any element in the DOM not input fields
+  // specify the type in useRef to fix that
+  const nameRef = useRef<HTMLInputElement>(null);
+  const ageRef = useRef<HTMLInputElement>(null);
+  const person = { name: "", age: 0 };
   // when moving attributes from a element, hover over the word and you'll see the tool tip with the type
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
-    console.log("Submitted");
+    if (nameRef.current) person.name = nameRef.current.value;
+    if (ageRef.current) person.age = parseInt(ageRef.current.value);
+    console.log(person);
   };
 
   return (
@@ -84,17 +93,18 @@ const Form = () => {
       <div className="mb-3">
         {/* Set the htmlFor to the ID of this input, so when a user clicks on a label the input automatically gets focused */}
         {/* give this label an id [name] and use [name] for htmlFor */}
+        {/* we need to associatre our nameRef with this id */}
         <label id="name" htmlFor="name" className="from-label">
           Name
         </label>
-        <input type="text" className="form-control" />
+        <input ref={nameRef} type="text" className="form-control" />
       </div>
 
       <div className="mb-3">
         <label htmlFor="age" className="form-label">
           Age
         </label>
-        <input id="age" type="number" className="form-control" />
+        <input ref={ageRef} id="age" type="number" className="form-control" />
       </div>
 
       {/* add sumbit button */}
