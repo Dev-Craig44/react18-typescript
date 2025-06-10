@@ -57,10 +57,20 @@
 
 // use rafce to create a function component
 
+// submit message is disappearing because by default, when we submit an HTML form, that form is posted to the server, so we get a full page reload
+// solve this by preventing this default behavior
+
 const Form = () => {
   return (
     // to handle form submission we handle the [onSubmit] event just like we do on a click event
-    <form onSubmit={() => console.log("Submitted")}>
+    // give our arrow funcrion a [event] parameter and place expression inside curly braces
+    <form
+      onSubmit={(event) => {
+        // prevent this form from being posted to the server using the {preventDefault} methode on the [event] object
+        event.preventDefault();
+        console.log("Submitted");
+      }}
+    >
       {/* // I want to create some markup but I don't want to create it all by hand
       // add a div.mb-3 which is a div with the classname of mb-3 (margin bottom 3) | utility class in bootstrap
       // inside the div we want to add a label with the class "form-label" [div.mb-3>label.from-label]
