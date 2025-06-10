@@ -59,7 +59,8 @@
 
 const Form = () => {
   return (
-    <form action="">
+    // to handle form submission we handle the [onSubmit] event just like we do on a click event
+    <form onSubmit={() => console.log("Submitted")}>
       {/* // I want to create some markup but I don't want to create it all by hand
       // add a div.mb-3 which is a div with the classname of mb-3 (margin bottom 3) | utility class in bootstrap
       // inside the div we want to add a label with the class "form-label" [div.mb-3>label.from-label]
