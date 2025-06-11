@@ -47,9 +47,36 @@ These tools will help you create user-friendly forms with minimal boilerplate an
 
 - Alternatively, you can get the value of input fields using the state hook (`useState`). With this approach, every time the user types, the state updates and the component re-renders, keeping the input value in sync with your component's state.
 
-Controlled Components
-===
+# Controlled Components
 
 - Each input element manages its own internal state, but in our example, we're also using a `person` object to track form data. This can lead to situations where the input's state and the `person` state become unsynchronized.
 
 - To avoid this, it's best to use React as the single source of truth by managing all input values through component state.
+
+# Managing Forms with React Hook Form
+
+As your forms grow in complexity, managing state with the `useState` hook can become tedious and error-prone. For every input field, you need to set both `onChange` and `value` attributes, which quickly leads to repetitive code.
+
+This is where [React Hook Form](https://react-hook-form.com/) comes in. This popular library lets you build forms quickly and efficiently, with less boilerplate.
+
+To install React Hook Form, run:
+
+```bash
+npm i react-hook-form@latest
+```
+
+When you use React Hook Form, you get access to a variety of helpful methods and properties, such as:
+
+- `register` – Registers an input or select element and applies validation rules.
+- `handleSubmit` – Handles form submission and validation.
+- `watch` – Watches input value changes.
+- `reset` – Resets the form values and state.
+- `setValue` – Manually sets an input value.
+- `setError` – Manually sets an error on a field.
+- `clearErrors` – Clears errors on fields.
+- `formState` – Contains information about the form's state (e.g., errors, touched fields).
+- `control` – Used for advanced use cases and integrating with custom components.
+
+React Hook Form uses refs to access input values, so your components don't re-render on every keystroke. This makes it highly performant, even for large forms.
+
+> In real-world applications, submitting a form often involves more than just logging data—you'll typically validate input, handle errors, and send data to a backend server.
