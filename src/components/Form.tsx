@@ -1,6 +1,12 @@
 // download custom hook called [useForm]
 import { FieldValues, useForm } from "react-hook-form";
 
+// shape the form with an interface
+interface FormData {
+  name: string;
+  age: number;
+}
+
 const Form = () => {
   // call {useForm} to get a [form] object
   // const form = useForm();
@@ -12,7 +18,8 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+    // make sure you specify the type when calling the {useForm} method
+  } = useForm<FormData>();
 
   // call register and give it a name of an input
   // console.log(register("name"));

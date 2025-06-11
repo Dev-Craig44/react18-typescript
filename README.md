@@ -82,3 +82,8 @@ React Hook Form uses refs to access input values, so your components don't re-re
 > In real-world applications, submitting a form often involves more than just logging data—you'll typically validate input, handle errors, and send data to a backend server.
 
 # Validation
+
+- When we type `errors.` in TypeScript, we don't see autocomplete suggestions for our input field names.
+- This happens because the TypeScript compiler isn't aware of the specific fields in our form.
+- To improve both the development experience and type safety, we should define an interface that describes the shape of our form data.
+- By specifying an interface, TypeScript can provide better autocompletion and catch errors at compile time.
