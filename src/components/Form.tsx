@@ -6,7 +6,14 @@ const Form = () => {
   // const form = useForm();
 
   // destructure the [form] and grab [register]
-  const { register, handleSubmit } = useForm();
+  // grab the [formState] property
+  // we can use this errors object to show validation messages to the user
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   // call register and give it a name of an input
   // console.log(register("name"));
 
@@ -31,11 +38,17 @@ const Form = () => {
         {/* so we can handle this event and update our state variables every time the user types something in an input field */}
         <input
           // this register function returns an object, so if we spread this object all the properties of this [register] object will be added to this input field, same thing for age
-          {...register("name")}
+          // as a second argument in the {register} method we can add validation to this name input
+          {...register("name", { required: true, minLength: 3 })}
           id="name"
           type="text"
           className="form-control"
         />
+        {/* the errors object could be empty, and we'll end up trying to access an undefined property so we need to put a "?" optional chaining operator so this expression is evauluated ONLY if we have the given condition (name, and errors), otherwise it's ignored */}
+        {errors.name?.type === "required" && <p>The name field is required.</p>}
+        {errors.name?.type === "minLength" && (
+          <p>The name must be at least 3 characters</p>
+        )}
       </div>
       <div className="mb-3">
         <label htmlFor="age" className="form-label">

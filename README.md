@@ -80,3 +80,5 @@ When you use React Hook Form, you get access to a variety of helpful methods and
 React Hook Form uses refs to access input values, so your components don't re-render on every keystroke. This makes it highly performant, even for large forms.
 
 > In real-world applications, submitting a form often involves more than just logging data—you'll typically validate input, handle errors, and send data to a backend server.
+
+# Validation
