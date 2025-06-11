@@ -42,5 +42,7 @@ These tools will help you create user-friendly forms with minimal boilerplate an
 - When sending form data to a server, it's best practice to send an object containing all the relevant fields.
 
 - **Why initialize every useRef with `null`?**
-  - The `current` property of a ref object will reference a DOM node after the component mounts, but before that, it is `null`.
-  - This is why the type of `current` is either the DOM node or `null`.
+
+- The `current` property of a ref object is `null` before the component mounts, and then references the DOM node after mounting. This is why its type is either the DOM node or `null`.
+
+- Alternatively, you can get the value of input fields using the state hook (`useState`). With this approach, every time the user types, the state updates and the component re-renders, keeping the input value in sync with your component's state.

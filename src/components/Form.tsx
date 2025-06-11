@@ -1,8 +1,14 @@
-import { FormEvent } from "react";
+import { FormEvent, useState } from "react";
 
 const Form = () => {
+  const [person, setPerson] = useState({
+    name: "",
+    age: 0,
+  });
+
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();
+    console.log(person);
   };
 
   return (
@@ -11,13 +17,30 @@ const Form = () => {
         <label htmlFor="name" className="form-label">
           Name
         </label>
-        <input id="name" type="text" className="form-control" />
+        {/* all input fields have a change event that is triggered every time the user types a keystroke */}
+        {/* so we can handle this event and update our state variables every time the user types something in an input field */}
+        <input
+          onChange={
+            // update the name property of the [person] object
+            (event) => setPerson({ ...person, name: event.target.value })
+          }
+          id="name"
+          type="text"
+          className="form-control"
+        />
       </div>
       <div className="mb-3">
         <label htmlFor="age" className="form-label">
           Age
         </label>
-        <input id="age" type="number" className="form-control" />
+        <input
+          onChange={(event) => {
+            setPerson({ ...person, age: parseInt(event.target.value) });
+          }}
+          id="age"
+          type="number"
+          className="form-control"
+        />
       </div>
       <button className="btn btn-primary" type="submit">
         Submit
