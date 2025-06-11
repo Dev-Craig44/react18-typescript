@@ -3,7 +3,7 @@ import { FormEvent, useState } from "react";
 const Form = () => {
   const [person, setPerson] = useState({
     name: "",
-    age: 0,
+    age: "",
   });
 
   const handleSubmit = (event: FormEvent) => {
@@ -24,6 +24,8 @@ const Form = () => {
             // update the name property of the [person] object
             (event) => setPerson({ ...person, name: event.target.value })
           }
+          // set value to person.name so the input field always relies on the value in our state variable
+          value={person.name}
           id="name"
           type="text"
           className="form-control"
@@ -35,8 +37,9 @@ const Form = () => {
         </label>
         <input
           onChange={(event) => {
-            setPerson({ ...person, age: parseInt(event.target.value) });
+            setPerson({ ...person, age: event.target.value });
           }}
+          value={person.age}
           id="age"
           type="number"
           className="form-control"

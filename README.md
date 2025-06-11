@@ -46,3 +46,10 @@ These tools will help you create user-friendly forms with minimal boilerplate an
 - The `current` property of a ref object is `null` before the component mounts, and then references the DOM node after mounting. This is why its type is either the DOM node or `null`.
 
 - Alternatively, you can get the value of input fields using the state hook (`useState`). With this approach, every time the user types, the state updates and the component re-renders, keeping the input value in sync with your component's state.
+
+Controlled Components
+===
+
+- Each input element manages its own internal state, but in our example, we're also using a `person` object to track form data. This can lead to situations where the input's state and the `person` state become unsynchronized.
+
+- To avoid this, it's best to use React as the single source of truth by managing all input values through component state.
