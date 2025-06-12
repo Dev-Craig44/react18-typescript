@@ -1,4 +1,13 @@
 import { FieldValues, useForm } from "react-hook-form";
+// import [z] from 'zod'
+import { z } from "zod";
+
+// this object method will return will return an object that we can put in [schema] variable
+const schema = z.object({
+  // this represents the shape of our form.
+  name: z.string().min(3),
+  age: z.number().min(18),
+});
 
 interface FormData {
   name: string;

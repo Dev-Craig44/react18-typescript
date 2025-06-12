@@ -87,3 +87,12 @@ React Hook Form uses refs to access input values, so your components don't re-re
 - This happens because the TypeScript compiler isn't aware of the specific fields in our form.
 - To improve both the development experience and type safety, we should define an interface that describes the shape of our form data.
 - By specifying an interface, TypeScript can provide better autocompletion and catch errors at compile time.
+
+# Schema based Validation w/ Zod
+
+- as our form gets complex we'll end up with a lot of validation rules all over the place.
+- In that case, it's best to use a "schema based validation"
+  VAlidation Lib
+  1.) Joi
+  2.) Yup
+  3.) Zod
