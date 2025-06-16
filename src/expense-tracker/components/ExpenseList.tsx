@@ -18,6 +18,8 @@ interface Props {
 //  let's add the props to our component
 // (3***) add this callback funcrtion to the Props
 const ExpenseList = ({ expenses, onDelete }: Props) => {
+  // make sure that if there are no expenses, we return null
+  if (expenses.length === 0) return null;
   return (
     // we want to return a table with two classes
     // 1.) table (this is essential for all tables in Bootstrap)
@@ -59,7 +61,7 @@ const ExpenseList = ({ expenses, onDelete }: Props) => {
               <button
                 className="btn btn-outline-danger"
                 // (3****) add the onDelete callback function as the onChange event handler
-                onChange={() => onDelete(expense.id)}
+                onClick={() => onDelete(expense.id)}
               >
                 Delete
               </button>
