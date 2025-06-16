@@ -96,3 +96,8 @@ React Hook Form uses refs to access input values, so your components don't re-re
   1.) Joi
   2.) Yup
   3.) Zod
+
+  `intergrate react hook form with zod`
+  using `npm i @hookform/resolvers`
+
+  - this library includes resolvers including various schema based validations like Zod, Joi, and so on.

@@ -1,7 +1,8 @@
 import { FieldValues, useForm } from "react-hook-form";
 // import [z] from 'zod'
 import { z } from "zod";
-
+// import [zodResolver] from 'react-hook-form-zod-resolver-zod'
+import { zodResolver } from "@hookform/resolvers/zod";
 // this object method will return will return an object that we can put in [schema] variable
 const schema = z.object({
   // this represents the shape of our form.
@@ -21,7 +22,8 @@ const Form = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<FormData>();
+    // now when calling a form hook, we pass a config object and set resolver to {zodResolver(schema)}, passing our schema object to it.
+  } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = (data: FieldValues) => {
     console.log(data);
@@ -34,16 +36,16 @@ const Form = () => {
           Name
         </label>
         <input
-          {...register("name", { required: true, minLength: 3 })}
+          // we can remove these validation rules because all of are validation rules are define in our
+          {...register("name")}
           id="name"
           type="text"
           className="form-control"
         />
-        {errors.name?.type === "required" && (
-          <p className="text-danger">The name field is required.</p>
-        )}
-        {errors.name?.type === "minLength" && (
-          <p className="text-danger">The name must be at least 3 characters</p>
+        {/* with this technique we don't need separted <p> elements for different error messages  */}
+        {errors.name && (
+          // so zod will take care of the genrating error messages baased on the schema that we defined
+          <p className="text-danger">{errors.name.message}</p>
         )}
       </div>
       <div className="mb-3">
@@ -56,6 +58,10 @@ const Form = () => {
           type="number"
           className="form-control"
         />
+        {errors.age && (
+          // so zod will take care of the genrating error messages baased on the schema that we defined
+          <p className="text-danger">{errors.age.message}</p>
+        )}
       </div>
       <button className="btn btn-primary" type="submit">
         Submit
