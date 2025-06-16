@@ -144,3 +144,10 @@ This exercise focuses on building a dynamic and type-safe expense tracker using 
 5. **Bonus:**
    - Disable the Submit button until the form is valid.
    - Clear the form on successful submission.
+
+===
+
+- so because we are working on a mini project, it's better to create a new folder under the `src` folder called `expense-tracker`
+- so this folder is going to contain all the building blocks for our Expense Tracker App
+- this is a good way to stucture a large conplex application. so if you want to build an application like Amazon, we don't want to throw all our components inside the components folder.
+- Instead we should divide our application into different functional areas or modules the same way a supermarket is divided into different sections like dairy, bakery, etc.
