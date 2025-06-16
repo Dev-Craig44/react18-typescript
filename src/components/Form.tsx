@@ -25,7 +25,8 @@ const Form = () => {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    // here where we are grabbing the errors object from the form state, we can also grab the isValid property to tell if the form is valid or not
+    formState: { errors, isValid },
     // now when calling a form hook, we pass a config object and set resolver to {zodResolver(schema)}, passing our schema object to it.
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
@@ -67,7 +68,8 @@ const Form = () => {
           <p className="text-danger">{errors.age.message}</p>
         )}
       </div>
-      <button className="btn btn-primary" type="submit">
+      {/* plug the isValid property into the [disabled] prop pn the button element  */}
+      <button disabled={!isValid} className="btn btn-primary" type="submit">
         Submit
       </button>
     </form>
