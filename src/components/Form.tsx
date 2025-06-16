@@ -6,8 +6,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 // this object method will return will return an object that we can put in [schema] variable
 const schema = z.object({
   // this represents the shape of our form.
-  name: z.string().min(3),
-  age: z.number().min(18),
+  // here where we are shaping our form data, we can customize the error message by passing an object with the a message property
+  name: z.string().min(3, { message: "Name must be at least 3 characters." }),
+  // the error message we got here was "Expected number, received string" this happened because the value property of input fields always returns a string, so we need to instruct react-hook-form to interpret this value as a number
+  age: z
+    .number({ invalid_type_error: "Age field is required." })
+    .min(18, { message: "Age must be at least 18" }),
 });
 
 // a good thing about Zod is that it has a method that allows us to extract a type from a schema object
@@ -53,7 +57,7 @@ const Form = () => {
           Age
         </label>
         <input
-          {...register("age")}
+          {...register("age", { valueAsNumber: true })}
           id="age"
           type="number"
           className="form-control"
