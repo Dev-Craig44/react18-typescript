@@ -9,10 +9,12 @@ const schema = z.object({
   age: z.number().min(18),
 });
 
-interface FormData {
-  name: string;
-  age: number;
-}
+// a good thing about Zod is that it has a method that allows us to extract a type from a schema object
+// so we don't have to type this interface by hand
+// z.infer<typeof schema>
+// this returns a typescript type which is similar to an interface
+// store this type call FormData
+type FormData = z.infer<typeof schema>;
 
 const Form = () => {
   const {
