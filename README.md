@@ -107,3 +107,40 @@ npm i @hookform/resolvers
 ```
 
 This package provides resolvers for various schema-based validation libraries, including Zod, Joi, and others.
+
+## 🧾 Build Expense Tracker (Vite + React + TypeScript)
+
+This exercise focuses on building a dynamic and type-safe expense tracker using **Vite**, **React**, and **TypeScript**, with schema-based validation using **Zod** and **React Hook Form**.
+
+### 🛠️ Instructions
+
+1. **Setup:**
+
+   - Initialize the project with Vite and TypeScript.
+   - Install dependencies:
+     ```bash
+     npm install react-hook-form zod
+     ```
+
+2. **Build the UI:**
+
+   - Create a table to display expense entries with three fields: `Description`, `Amount`, and `Category`.
+   - Add a dropdown to filter by category.
+   - Add delete buttons to remove individual entries.
+
+3. **Add the Expense Form:**
+
+   - Create a form with inputs for each field.
+   - Use `React Hook Form` to manage form state.
+   - Use `Zod` for schema validation.
+     - Description: Minimum 3 characters
+     - Amount: Required & positive number
+     - Category: Required
+
+4. **Validation Display:**
+
+   - Show inline validation messages under each field.
+
+5. **Bonus:**
+   - Disable the Submit button until the form is valid.
+   - Clear the form on successful submission.
