@@ -88,16 +88,22 @@ React Hook Form uses refs to access input values, so your components don't re-re
 - To improve both the development experience and type safety, we should define an interface that describes the shape of our form data.
 - By specifying an interface, TypeScript can provide better autocompletion and catch errors at compile time.
 
-# Schema based Validation w/ Zod
+# Schema-based Validation with Zod
 
-- as our form gets complex we'll end up with a lot of validation rules all over the place.
-- In that case, it's best to use a "schema based validation"
-  VAlidation Lib
-  1.) Joi
-  2.) Yup
-  3.) Zod
+As your forms become more complex, managing validation rules scattered throughout your code can get messy. To address this, it's best to use **schema-based validation**.
 
-  `intergrate react hook form with zod`
-  using `npm i @hookform/resolvers`
+Popular validation libraries include:
 
-  - this library includes resolvers including various schema based validations like Zod, Joi, and so on.
+1. **Joi**
+2. **Yup**
+3. **Zod**
+
+In this course, we'll use **Zod** for its strong TypeScript support and simplicity.
+
+To integrate React Hook Form with Zod, install the resolver package:
+
+```bash
+npm i @hookform/resolvers
+```
+
+This package provides resolvers for various schema-based validation libraries, including Zod, Joi, and others.
