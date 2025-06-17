@@ -1,5 +1,5 @@
-import { categories } from "../../App";
-
+// 25.) import our categories array
+import categories from "../categories";
 interface Props {
   onSelectCategory: (category: string) => void;
 }
