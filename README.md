@@ -147,7 +147,11 @@ This exercise focuses on building a dynamic and type-safe expense tracker using 
 
 ===
 
-- so because we are working on a mini project, it's better to create a new folder under the `src` folder called `expense-tracker`
-- so this folder is going to contain all the building blocks for our Expense Tracker App
-- this is a good way to stucture a large conplex application. so if you want to build an application like Amazon, we don't want to throw all our components inside the components folder.
-- Instead we should divide our application into different functional areas or modules the same way a supermarket is divided into different sections like dairy, bakery, etc.
+- Since we're building a mini project, it's best to create a new folder under the `src` directory named `expense-tracker`.
+- This folder will contain all the components and logic for the Expense Tracker app.
+- Organizing your code this way helps structure larger or more complex applications. For example, instead of placing every component in a single `components` folder, you can group related features into separate modules or domains.
+- Think of it like a supermarket, where different sections (like dairy or bakery) keep things organized and easy to find.
+
+# expense filter
+
+- potentially in the future, we might want to filter by different parameters, so our filter component going to include all kinds of filters

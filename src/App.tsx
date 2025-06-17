@@ -1,9 +1,10 @@
 import { useState } from "react";
+import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 
 function App() {
   // use stateHook to store the list of expenses
-
+  const [selectedCategory, setSetselectedCategory] = useState("");
   const [expenses, setExpenses] = useState([
     { id: 1, description: "Groceries", amount: 50.0, category: "Food" },
     {
@@ -14,11 +15,23 @@ function App() {
     },
     { id: 3, description: "Gym Membership", amount: 30.0, category: "Health" },
   ]);
+
+  //  the reason we are not using a state variable for the visible expenses is because this is redundant, because this is something that we can calculate from the existing state variables
+  // don't use state variables for things we can compute from the existing state variables
+  const visibleExpenses = selectedCategory
+    ? expenses.filter((e) => e.category === selectedCategory)
+    : expenses;
+
   return (
     <div>
+      <div className="mb-3">
+        <ExpenseFilter
+          onSelectCategory={(category) => setSetselectedCategory(category)}
+        />
+      </div>
       {/* add the expense list */}
       <ExpenseList
-        expenses={expenses}
+        expenses={visibleExpenses}
         // to delete we are going to pass a callback function that takes an id and calls {setExpenses}, passing a filtered list of expenses, with the expression being the we are going to pick eveything but this expense with the id
         onDelete={(id) => setExpenses(expenses.filter((e) => e.id !== id))}
       />
