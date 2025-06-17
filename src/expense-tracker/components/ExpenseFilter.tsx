@@ -1,3 +1,6 @@
+// 13.) import categories from App
+import { categories } from "../../App";
+
 interface Props {
   onSelectCategory: (category: string) => void;
 }
@@ -11,9 +14,12 @@ const ExpenseFilter = ({ onSelectCategory }: Props) => {
       onChange={(event) => onSelectCategory(event.target.value)}
     >
       <option value="">All categories</option>
-      <option value="Utilities">Utilities</option>
-      <option value="Health">Health</option>
-      <option value="Food">Food</option>
+      {/* 14.) dynamically render the options */}
+      {categories.map((c) => (
+        <option key={c} value={c}>
+          {c}
+        </option>
+      ))}
     </select>
   );
 };

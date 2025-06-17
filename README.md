@@ -152,6 +152,8 @@ This exercise focuses on building a dynamic and type-safe expense tracker using 
 - Organizing your code this way helps structure larger or more complex applications. For example, instead of placing every component in a single `components` folder, you can group related features into separate modules or domains.
 - Think of it like a supermarket, where different sections (like dairy or bakery) keep things organized and easy to find.
 
-# expense filter
+# Expense Filter
 
-- potentially in the future, we might want to filter by different parameters, so our filter component going to include all kinds of filters
+- In the future, we may want to filter expenses by various parameters. To accommodate this, our filter component will be designed to support multiple types of filters.
+
+# Expense Form

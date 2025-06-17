@@ -1,7 +1,11 @@
 import { useState } from "react";
 import ExpenseFilter from "./expense-tracker/components/ExpenseFilter";
+import ExpenseForm from "./expense-tracker/components/ExpenseForm";
 import ExpenseList from "./expense-tracker/components/ExpenseList";
 
+// 12.) export this so other modules can use it
+// 11.) retrieve categories (real world, we would retrieve this from an API)
+export const categories = ["Utilities", "Health", "Food"];
 function App() {
   // use stateHook to store the list of expenses
   const [selectedCategory, setSetselectedCategory] = useState("");
@@ -24,6 +28,10 @@ function App() {
 
   return (
     <div>
+      {/* 17.) add expense form inside a div.mb-5 */}
+      <div className="mb-5">
+        <ExpenseForm />
+      </div>
       <div className="mb-3">
         <ExpenseFilter
           onSelectCategory={(category) => setSetselectedCategory(category)}
